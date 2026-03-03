@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoGuardian | Protecting Our Planet</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-green: #2d6a4f;
+            --secondary-green: #40916c;
+            --accent-lime: #d8f3dc;
+            --text-dark: #1b4332;
+            --text-light: #ffffff;
+            --bg-light: #f7fff7;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a:hover {
+            color: var(--accent-lime);
+            transition: 0.3s;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background-color: var(--secondary-green);
+            color: white;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.2s, background 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-green);
+            transform: scale(1.05);
+        }
+
+        /* --- INFO CARDS SECTION --- */
+        .section {
+            padding: 4rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-green);
+            font-size: 2.5rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- INTERACTIVE TIP SECTION --- */
+        .tip-section {
+            background-color: var(--accent-lime);
+            text-align: center;
+        }
+
+        #tip-display {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 2rem 0;
+            min-height: 3rem;
+            color: var(--text-dark);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem;
+            margin-top: auto;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            nav ul { display: none; } /* Simplified for mobile demo */
+            .logo { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">🌿 EcoGuardian</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#issues">Issues</a></li>
+                <li><a href="#tips">Daily Tips</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Our Planet, Our Future</h1>
+        <p>Small changes today lead to a greener tomorrow. Join the movement to protect our ecosystems and reduce our carbon footprint.</p>
+        <button class="btn" onclick="scrollToTips()">Get Green Tips</button>
+    </section>
+
+    <!-- Issues Section -->
+    <section class="section" id="issues">
+        <h2 class="section-title">Key Environmental Challenges</h2>
+        <div class="grid-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Plastic Pollution">
+                <div class="card-content">
+                    <h3>Plastic Pollution</h3>
+                    <p>Millions of tons of plastic enter our oceans every year. We need to reduce single-use plastics and improve recycling infrastructure.</p>
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Deforestation">
+                <div class="card-content">
+                    <h3>Deforestation</h3>
+                    <p>Forests are the lungs of our planet. Protecting existing woodlands and planting new trees is crucial for carbon absorption.</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Renewable Energy">
+                <div class="card-content">
+                    <h3>Renewable Energy</h3>
+                    <p>Transitioning from fossil fuels to solar, wind, and hydro power is the only way to combat climate change effectively.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tips Section -->
+    <section class="section tip-section" id="tips">
+        <h2 class="section-title">Daily Eco-Tips</h2>
+        <p>Click the button below to get a simple way to help the environment today.</p>
+        <div id="tip-display">Ready to help?</div>
+        <button class="btn" onclick="generateTip()">Give me a Tip!</button>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>&copy; 2023 EcoGuardian. Made with nature in mind.</p>
+        <p>Stay Green. 🌍</p>
+    </footer>
+
+    <!-- JavaScript for Interactivity -->
+    <script>
+        // Smooth scroll function
+        function scrollToTips() {
+            document.getElementById('tips').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Tip Generator Logic
+        const tips = [
+            "Switch to LED light bulbs to save energy.",
+            "Bring a reusable water bottle instead of buying plastic ones.",
+            "Walk or bike for short trips instead of driving.",
+            "Unplug electronics when they aren't in use.",
+            "Eat one meat-free meal this week to lower your carbon footprint.",
+            "Start composting your food scraps.",
+            "Use cold water for laundry to save heating energy.",
+            "Plant a tree or a native flower in your garden."
+        ];
+
+        function generateTip() {
+            const display = document.getElementById('tip-display');
+            const randomIndex = Math.floor(Math.random() * tips.length);
+            
+            // Simple fade effect
+            display.style.opacity = 0;
+            setTimeout(() => {
+                display.innerText = tips[randomIndex];
+                display.style.opacity = 1;
+            }, 200);
+        }
+    </script>
+</body>
+</html>
